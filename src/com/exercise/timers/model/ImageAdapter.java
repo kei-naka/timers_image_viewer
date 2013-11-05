@@ -1,7 +1,8 @@
-package com.exercise.timers;
+package com.exercise.timers.model;
+
+import com.exercise.timers.R;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -34,8 +35,7 @@ public class ImageAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return thumbs[index];
 	}
 
 	@Override
