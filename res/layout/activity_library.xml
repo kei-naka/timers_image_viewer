@@ -5,17 +5,12 @@
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical">
-<!--
-    <ImageView
-        android:id="@+id/imageView"
+
+    <GridView
+        android:id="@+id/gridViewLibrary"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:contentDescription="@string/contentDescription"
+        android:numColumns="auto_fit"
         android:gravity="center" />
 
-    <com.exercise.timers.view.TimersImageViewer
-        android:id="@+id/timersImageViewer"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" />
--->
 </LinearLayout>

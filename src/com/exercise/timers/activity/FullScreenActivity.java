@@ -1,31 +1,26 @@
 package com.exercise.timers.activity;
 
 import com.exercise.timers.R;
+import com.exercise.view.TimersImageViewer;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.view.ViewGroup.LayoutParams;
 
 public class FullScreenActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_full_screen);
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
-			int index = bundle.getInt("index");
-			Log.d("FSA", "index: " + index);
-			ImageView imageView = (ImageView) findViewById(R.id.imageView);
-			imageView.setImageResource(R.drawable.sample_1);
+			String file_name = bundle.getString("file_name");
+			TimersImageViewer imageViewer = new TimersImageViewer(this);
+			imageViewer.loadImageBitmap(file_name);
+			imageViewer.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+			setContentView(imageViewer);
 		}
 	}
 

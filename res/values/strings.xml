@@ -2,7 +2,13 @@
 <resources>
 
     <string name="app_name">Timers</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_library">ライブラリから選択</string>
     <string name="contentDescription">selected image</string>
+    
+    <string name="save_image_title">画像をアプリに保存</string>
+    <string name="save_image_message">画像をアプリに保存しますか？</string>
+    
+    <string name="file_name">file name</string>
+    <string name="file_path">file path</string>
 
 </resources>
