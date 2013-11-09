@@ -9,11 +9,13 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
+/**
+ * èâä˙âÊñ 
+ * @author keigo.nakamura
+ *
+ */
 public class MainActivity extends Activity {
 
 	@Override
@@ -28,15 +30,6 @@ public class MainActivity extends Activity {
 		
 		GridView gridView = (GridView) findViewById(R.id.gridView);
 		gridView.setAdapter(new ImageAdapter(this));
-		gridView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int index, long id){
-				Intent intent = new Intent(MainActivity.this, FullScreenActivity.class);
-				intent.putExtra("file_name", (String)view.getTag(R.string.file_name));
-				intent.putExtra("file_path", (String)view.getTag(R.string.file_path));
-				startActivity(intent);
-			}
-		});
 	}
 	
 	@Override
@@ -51,5 +44,4 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 		return true;
 	}
-
 }

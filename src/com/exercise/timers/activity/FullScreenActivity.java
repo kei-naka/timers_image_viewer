@@ -1,14 +1,16 @@
 package com.exercise.timers.activity;
 
-import com.exercise.timers.R;
 import com.exercise.view.TimersImageViewer;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
-import android.view.Menu;
 import android.view.ViewGroup.LayoutParams;
 
+/**
+ * 初期画面で各画像をタップした時に表示される、全画面表示用のアクティビティ
+ * @author keigo.nakamura
+ *
+ */
 public class FullScreenActivity extends Activity {
 
 	@Override
@@ -23,12 +25,4 @@ public class FullScreenActivity extends Activity {
 			setContentView(imageViewer);
 		}
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}
-
 }

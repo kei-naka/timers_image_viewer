@@ -4,20 +4,24 @@ import java.io.File;
 import java.util.ArrayList;
 
 import com.exercise.timers.R;
-import com.exercise.timers.model.ImageAdapter;
 import com.exercise.timers.model.LibraryAdapter;
 
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
-import android.content.Intent;
+// import android.content.BroadcastReceiver;
+// import android.content.Context;
+// import android.content.Intent;
+// import android.content.IntentFilter;
 import android.util.Log;
-import android.view.Menu;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
+/**
+ * 初期画面のメニュー「ライブラリから選択」を選択をして遷移した時に表示されるアクティビティ
+ * 端末内の画像を
+ * @author keigo.nakamura
+ *
+ */
 public class LibraryActivity extends Activity {
 
 	@Override
@@ -25,27 +29,31 @@ public class LibraryActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_library);
 		
-		ArrayList<String> image_path = new ArrayList<String>();
 		String sdcard_path = Environment.getExternalStorageDirectory().getPath();
 		Log.d("MA", "ssdcard_path: " + sdcard_path);
-		image_path = getSubFiles(sdcard_path);
-		for (String file_path : image_path) {
-			Log.d("MA", "file path: " + file_path);
+		ArrayList<String> image_path = getSubFiles(sdcard_path);
+		if (image_path != null) {
+			for (String file_path : image_path) {
+				Log.d("MA", "scaned file path: " + file_path);
+			}
 		}
 		
 		GridView gridView = (GridView) findViewById(R.id.gridViewLibrary);
 		gridView.setAdapter(new LibraryAdapter(this, image_path));
 	}
 	
+	/**
+	 * path配下のディレクトリを再帰的にスキャンして画像を探し、パス一覧を返す
+	 * @param path
+	 * @return ArrayList<String>
+	 */
 	private ArrayList<String> getSubFiles(String path) {
 		Log.d("MA", "scan " + path);
-		
 		File file_handler = new File(path);
 		String file_cands[] = file_handler.list();
 		ArrayList<String> file_names = new ArrayList<String>();
-		
 		if (file_cands == null || file_cands.length <= 0) {
-			return file_names;
+			return null;
 		}
 		
 		for (String file_candidate : file_cands) {
@@ -73,6 +81,11 @@ public class LibraryActivity extends Activity {
 		return file_names;
 	}
 	
+	/**
+	 * 画像かどうかの判定を拡張子で行う
+	 * @param name
+	 * @return
+	 */
 	private boolean isImage(String name) {
 		String[] exts = {"jpg", "JPG", "jpeg", "png", "bmp", "tiff", "gif"};
 		if (name.isEmpty())

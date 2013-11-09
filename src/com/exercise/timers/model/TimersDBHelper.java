@@ -5,6 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+/**
+ * このアプリで使用するデータベース設定
+ * @author keigo
+ *
+ */
 public class TimersDBHelper extends SQLiteOpenHelper {
 	
 	private static final String DB_NAME = "TimersDB";

@@ -8,7 +8,15 @@
     <string name="save_image_title">画像をアプリに保存</string>
     <string name="save_image_message">画像をアプリに保存しますか？</string>
     
-    <string name="file_name">file name</string>
-    <string name="file_path">file path</string>
+    <string name="failed_save_image_title">保存不可</string>
+    <string name="failed_save_image_message">未定義のフォーマットか画像が壊れているため、その画像は保存できません。</string>
+    
+    <string name="raw_save">現在のサイズで保存</string>
+    <string name="compress_save">縮小して保存</string>
+    
+    <string name="remove_image_title">削除</string>
+    <string name="remove_image_message">画像をアプリから削除しますか？</string>
+    <string name="remove_image_success">削除しました</string>
+    <string name="remove_image_failed">削除に失敗しました</string>
 
 </resources>
