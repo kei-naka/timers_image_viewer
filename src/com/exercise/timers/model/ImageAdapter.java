@@ -90,7 +90,7 @@ public class ImageAdapter extends BaseAdapter {
 		ImageView view = (ImageView)convertedView;
 		if (view == null) {
 			view = new ImageView(context);
-			view.setLayoutParams(new GridView.LayoutParams(248, 248));
+			view.setLayoutParams(new GridView.LayoutParams(160, 160));
 			view.setPadding(10, 10, 10, 10);
 		}
 		loader.displayImage("file://" + context.getFilesDir() + "/" + file_names.get(index), view); 
